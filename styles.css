@@ -1,0 +1,390 @@
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Contêiner Geral */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cabeçalho */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to right, #00274d, #004c8c); /* Gradiente similar ao desejado */
+    padding: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.header-logo img {
+    width: 50px; /* Ajuste o tamanho do logo se necessário */
+    margin-right: 15px;
+}
+
+.header-title {
+    text-align: left;
+}
+
+.header-title h1 {
+    font-size: 28px;
+    color: #ffffff; /* Branco para destacar no fundo gradiente */
+    margin: 0;
+}
+
+.header-title h3 {
+    font-size: 16px;
+    color: #ffffff;
+    margin: 0;
+    font-weight: normal;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.nav-buttons a {
+    color: #ffffff;
+    padding: 8px 15px;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-buttons a:hover {
+    background-color: #ffffff;
+    color: #00274d;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-container {
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+    }
+
+    .nav-buttons {
+        margin-top: 10px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .header-title h1 {
+        font-size: 24px;
+    }
+
+    .header-title h3 {
+        font-size: 14px;
+    }
+}
+
+
+
+/* Seção Hero */
+.hero {
+    background-image: url('banner.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+.hero .btn {
+    background-color: #ffb400;
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+/* Seção Funcionalidades */
+.features {
+    background-color: #f9f9f9;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.features h2 {
+    margin-bottom: 40px;
+}
+
+.feature-item {
+    display: inline-block;
+    width: 30%;
+    margin: 0 1.5%;
+    vertical-align: top;
+}
+
+.feature-item i {
+    font-size: 50px;
+    color: #1e73be;
+    margin-bottom: 20px;
+}
+
+.feature-item h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    font-size: 16px;
+}
+
+/* Seção Como Funciona */
+.how-it-works {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.how-it-works h2 {
+    margin-bottom: 40px;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+}
+
+.step {
+    width: 30%;
+}
+
+.step span {
+    display: block;
+    background-color: #1e73be;
+    color: #fff;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+}
+
+.step p {
+    font-size: 16px;
+}
+
+/* Seção Depoimentos */
+.testimonials {
+    background-color: #f9f9f9;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.testimonials h2 {
+    margin-bottom: 40px;
+}
+
+.testimonial-item {
+    width: 45%;
+    display: inline-block;
+    margin: 0 2.5%;
+    vertical-align: top;
+}
+
+.testimonial-item p {
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.testimonial-item h4 {
+    font-size: 16px;
+    color: #1e73be;
+}
+
+/* Seção Chamada para Ação */
+.call-to-action {
+    background-color: #1e73be;
+    color: #fff;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.call-to-action h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.call-to-action p {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.call-to-action .buttons .btn {
+    background-color: #ffb400;
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+/* Rodapé */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-links a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+.social-media a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 20px;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature-item,
+    .step,
+    .testimonial-item {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .steps {
+        flex-direction: column;
+    }
+}
+
+/* Menu Responsivo */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+    }
+    nav.active ul {
+        display: flex;
+    }
+    .menu-toggle {
+        display: block;
+        color: #fff;
+        font-size: 24px;
+        cursor: pointer;
+    }
+}
+
+/* Efeito Hover em Links */
+nav ul li a:hover {
+    color: #ffb400;
+    transition: color 0.3s ease;
+}
+
+/* Seção Hero */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('banner.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.hero h2, .hero p {
+    animation: fadeInUp 1s ease;
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Cards com Sombras */
+.feature-item {
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+.feature-item:hover {
+    transform: scale(1.05);
+}
+
+/* Carrossel de Depoimentos */
+.testimonials {
+    position: relative;
+}
+.testimonial-item {
+    display: none;
+}
+.testimonial-item.active {
+    display: block;
+}
+
+/* Animação de Botão */
+.btn:hover {
+    animation: pulse 0.6s infinite;
+}
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Rodapé Organizado */
+.footer-links, .social-media, .contact-info {
+    flex: 1;
+}
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
