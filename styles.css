@@ -76,34 +76,42 @@ header {
     color: #00274d;
 }
 
+
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .header-container {
-        flex-direction: row;
-        align-items: center;
-        width: 100%;
-    }
-
     .nav-buttons {
-        margin-top: 10px;
-        flex-wrap: wrap;
-        gap: 10px;
+        display: none; /* Oculta o menu por padrão */
+        flex-direction: column; /* Exibe os links um abaixo do outro */
+        background-color: #004c8c; /* Ajusta o fundo do dropdown */
+        padding: 10px 0; /* Espaço interno */
+        position: absolute; /* Para que o dropdown flutue */
+        top: 70px; /* Ajuste para que o dropdown apareça logo abaixo do cabeçalho */
+        right: 0;
+        width: 100%;
+        z-index: 10; /* Garante que o menu fique sobre outros elementos */
+        margin-top: 15px;
+        box-sizing: border-box;
     }
 
-    .header-title h1 {
+    .nav-buttons.active {
+        display: flex;
+        /* background-color: #004c8c; Ajuste de cor se necessário */
+        /* padding: 10px 0; Para dar espaço interno */
+    }
+
+    .nav-buttons a {
+        width: calc(100% - 40px); /* Reduz a largura dos botões */
+        margin: 5px auto; /* Centraliza os botões e adiciona espaço entre eles */
+        display: block; /* Garante que os botões ocupem toda a largura */
+    }
+
+    .menu-toggle {
+        display: block;
+        color: #fff;
         font-size: 24px;
-    }
-
-    .header-title h3 {
-        font-size: 14px;
+        cursor: pointer;
+        margin-left: auto;
     }
 }
-
-
 
 /* Seção Hero */
 .hero {
@@ -202,34 +210,6 @@ header {
     font-size: 16px;
 }
 
-/* Seção Depoimentos */
-.testimonials {
-    background-color: #f9f9f9;
-    padding: 60px 0;
-    text-align: center;
-}
-
-.testimonials h2 {
-    margin-bottom: 40px;
-}
-
-.testimonial-item {
-    width: 45%;
-    display: inline-block;
-    margin: 0 2.5%;
-    vertical-align: top;
-}
-
-.testimonial-item p {
-    font-size: 18px;
-    font-style: italic;
-    margin-bottom: 10px;
-}
-
-.testimonial-item h4 {
-    font-size: 16px;
-    color: #1e73be;
-}
 
 /* Seção Chamada para Ação */
 .call-to-action {
@@ -237,6 +217,8 @@ header {
     color: #fff;
     padding: 60px 0;
     text-align: center;
+    display: inline-block; /* Certifique-se de que os botões estejam em linha */
+    margin: 10px 5px; /* Adiciona mais espaço entre os botões */
 }
 
 .call-to-action h2 {
@@ -258,6 +240,15 @@ header {
     border-radius: 5px;
     margin: 0 10px;
 }
+
+@media (max-width: 768px) {
+    .call-to-action .buttons .btn {
+        display: block; /* Coloca os botões em colunas */
+        width: 80%; /* Faz com que ocupem mais espaço horizontalmente */
+        margin: 10px auto; /* Centraliza os botões e adiciona margem */
+    }
+}
+
 
 /* Rodapé */
 footer {

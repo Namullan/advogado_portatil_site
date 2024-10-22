@@ -1,9 +1,9 @@
 // Menu Toggle para Dispositivos Móveis
 const menuToggle = document.querySelector('.menu-toggle');
-const nav = document.querySelector('nav');
+const navButtons = document.querySelector('.nav-buttons');
 
 menuToggle.addEventListener('click', () => {
-    nav.classList.toggle('active');
+    navButtons.classList.toggle('active');
 });
 
 // Script para navegação suave
