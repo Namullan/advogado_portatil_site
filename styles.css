@@ -266,38 +266,49 @@ header {
 
 /* Media Queries */
 @media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
     .hero-features {
         flex-direction: column;
-        gap: 0.75rem;
-        padding: 0 1rem;
+        gap: 1rem;
+        padding: 0 1.5rem;  /* Aumentado o padding lateral */
     }
 
     .feature {
         width: 100%;
-        justify-content: flex-start;
-        background: rgba(255, 255, 255, 0.08);
-        padding: 0.75rem;
-        gap: 1rem;
-        margin: 0;
+        padding: 1.25rem;   /* Aumentado o padding interno */
+        margin: 0.5rem 0;
+        min-height: 80px;   /* Garantir altura mínima */
+        display: flex;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.12);  /* Levemente mais visível */
     }
 
     .feature-icon {
-        margin: 0;
-        width: 40px;
-        height: 40px;
-        min-width: 40px;
-        font-size: 1.25rem;
+        font-size: 2.5rem;  /* Aumentado o tamanho do ícone */
+        margin-right: 1rem; /* Espaço entre ícone e texto */
+        min-width: 45px;    /* Largura mínima para alinhamento */
     }
 
-    /* Ajusta especificamente o alinhamento do texto */
     .feature span {
-        flex: 1;
+        font-size: 1.2rem;  /* Aumentado o tamanho da fonte */
+        font-weight: 500;   /* Deixando o texto um pouco mais forte */
+        color: #ffffff;
         text-align: left;
-        font-size: 0.95rem;
+        line-height: 1.3;   /* Melhor espaçamento entre linhas */
+    }
+
+    /* Ajustes específicos para o card em destaque */
+    .feature.featured {
+        padding: 1.5rem;    /* Padding ainda maior para o card destacado */
+        background: linear-gradient(135deg, rgba(245, 249, 255, 0.15), rgba(187, 222, 251, 0.15));
+    }
+
+    .feature.featured span {
+        font-size: 1.3rem;  /* Texto ainda maior para o card destacado */
+        font-weight: 600;
+    }
+
+    .feature.featured .feature-icon {
+        font-size: 2.8rem;  /* Ícone ainda maior para o card destacado */
     }
 
     /* Remove hover effects em mobile */
@@ -308,6 +319,24 @@ header {
     .hero-cta a {
         padding: 0.875rem 2rem;
         font-size: 1rem;
+    }
+
+    .hero-section {
+        min-height: 50vh;
+    }
+}
+
+@media (max-width: 380px) {
+    .feature {
+        padding: 1rem;
+    }
+
+    .feature-icon {
+        font-size: 2.2rem; /* Ligeiramente menor para telas muito pequenas */
+    }
+
+    .feature span {
+        font-size: 1.1rem; /* Ligeiramente menor para telas muito pequenas */
     }
 }
 
@@ -463,6 +492,11 @@ header {
 }
 
 @media (max-width: 768px) {
+    .features {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
     .features-grid {
         grid-template-columns: 1fr;
         gap: 20px;
