@@ -520,6 +520,206 @@ header {
     }
 }
 
+/* Seção Como Funciona */
+.how-it-works {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.how-it-works::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.1;
+}
+
+.how-it-works h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    color: #00274d;
+    position: relative;
+}
+
+.how-it-works h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #00274d, #004c8c);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.steps::before {
+    content: '';
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    right: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        #004c8c 0%, 
+        #004c8c 50%,
+        #e0e0e0 50%,
+        #e0e0e0 100%
+    );
+    background-size: 200% 100%;
+    animation: progressLine 3s infinite;
+    z-index: 1;
+}
+
+.step {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+    background: white;
+    margin: 0 15px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 300px;
+}
+
+.step:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.step::before {
+    content: attr(data-step);
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #00274d, #004c8c);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.step:hover::before {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 39, 77, 0.3);
+}
+
+.step-content {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.step h3 {
+    color: #00274d;
+    font-size: 1.25rem;
+    margin: 15px 0;
+    position: relative;
+}
+
+.step p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.step-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #00274d, #004c8c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes progressLine {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+@media (max-width: 968px) {
+    .steps {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .steps::before {
+        display: none;
+    }
+
+    .step {
+        width: 100%;
+        max-width: 400px;
+        margin: 20px 0;
+    }
+
+    .step::after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 40px;
+        background: #004c8c;
+        bottom: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: block;
+    }
+
+    .step:last-child::after {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .how-it-works {
+        padding: 60px 0;
+    }
+
+    .how-it-works h2 {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+
+    .step {
+        padding: 15px;
+    }
+
+    .step::before {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+
 /* Seção Chamada para Ação */
 .call-to-action {
     background-color: #1e73be;
