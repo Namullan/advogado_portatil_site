@@ -19,4 +19,28 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Script para animação da Seção Hero
+function toggleTitles() {
+    const title1 = document.getElementById('hero-title-1');
+    const title2 = document.getElementById('hero-title-2');
+    let isFirstTitle = true;
+
+    setInterval(() => {
+        if (isFirstTitle) {
+            title1.classList.remove('fade-in');
+            title1.classList.add('fade-out');
+            title2.classList.remove('fade-out');
+            title2.classList.add('fade-in');
+        } else {
+            title2.classList.remove('fade-in');
+            title2.classList.add('fade-out');
+            title1.classList.remove('fade-out');
+            title1.classList.add('fade-in');
+        }
+        isFirstTitle = !isFirstTitle;
+    }, 5000);
+}
+
+document.addEventListener('DOMContentLoaded', toggleTitles);
+
 // Adicionar funcionalidade adicional conforme necessário
