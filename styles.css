@@ -459,6 +459,67 @@ header {
     }
 }
 
+.feature.featured {
+    background: linear-gradient(135deg, #f5f9ff, #bbdefb);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(33, 150, 243, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature.featured::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(255, 255, 255, 0.2) 50%, 
+        rgba(255, 255, 255, 0.1) 100%);
+    animation: shimmer 2s infinite;
+    transform: skewX(-20deg);
+}
+
+.feature.featured .feature-icon {
+    animation: bounce 2s infinite;
+}
+
+.feature.featured span {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #0f5db6;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Animações */
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%) skewX(-20deg);
+    }
+    100% {
+        transform: translateX(200%) skewX(-20deg);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .feature.featured {
+        transform: scale(1.02);
+    }
+}
+
 /* Seção Chamada para Ação */
 .call-to-action {
     background-color: #1e73be;
