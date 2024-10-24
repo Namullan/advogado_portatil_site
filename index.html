@@ -17,26 +17,32 @@
 <body>
 
     <!-- Cabeçalho -->
-    <header>
-        <div class="container header-container">
-            <div class="header-logo">
-                <img src="assets/logo.png" alt="Logo Advogado Portátil">
+    <header class="modern-header">
+        <div class="header-container">
+            <div class="header-logo-section">
+                <div class="logo-box">
+                    <img src="assets/logo.png" alt="Logo Advogado Portátil" class="header-logo">
+                </div>
+                <div class="header-titles">
+                    <h1>Advogado Portátil</h1>
+                    <h3>Trabalhista</h3>
+                </div>
             </div>
-            <div class="header-title">
-                <h1>Advogado Portátil</h1>
-                <h3>Trabalhista</h3>
-            </div>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div> 
-            <div class="nav-buttons">
+            
+            <nav class="nav-buttons">
                 <a href="#funcionalidades">Funcionalidades</a>
                 <a href="#como-funciona">Como Funciona</a>
                 <a href="#download">Download</a>
-                <a href="#contato">Contato</a>
-            </div>
+                <a href="#footer_href">Contato</a>
+            </nav>
+            
+            <button class="menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-    </header>    
+    </header>
 
 
     <!-- Seção Hero -->
@@ -196,7 +202,7 @@
     </section>
 
     <!-- Rodapé -->
-    <footer>
+    <footer id="footer_href">
         <div class="footer-content">
             <div class="footer-section">
                 <h4>Sobre</h4>

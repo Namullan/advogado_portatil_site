@@ -8,6 +8,11 @@
 body {
     font-family: Arial, sans-serif;
     color: #333;
+    padding-top: 70px;
+}
+
+html {
+    scroll-padding-top: 70px;
 }
 
 /* Contêiner Geral */
@@ -17,99 +22,145 @@ body {
     margin: 0 auto;
 }
 
-/* Cabeçalho */
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: linear-gradient(to right, #00274d, #004c8c); /* Gradiente similar ao desejado */
-    padding: 20px;
-    border-bottom: 2px solid #e0e0e0;
+/* Estilos do Header */
+.modern-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: linear-gradient(to right, rgba(0, 39, 77, 0.95), rgba(0, 76, 140, 0.95));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    height: 70px; /* Altura fixa definida */
 }
 
 .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.header-logo-section {
     display: flex;
     align-items: center;
+    gap: 1rem;
+}
+
+.logo-box {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-logo {
     width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
-.header-logo img {
-    width: 50px; /* Ajuste o tamanho do logo se necessário */
-    margin-right: 15px;
+.header-titles {
+    display: flex;
+    flex-direction: column;
 }
 
-.header-title {
-    text-align: left;
-}
-
-.header-title h1 {
-    font-size: 28px;
-    color: #ffffff; /* Branco para destacar no fundo gradiente */
-    margin: 0;
-}
-
-.header-title h3 {
-    font-size: 16px;
+.header-titles h1 {
     color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: bold;
     margin: 0;
-    font-weight: normal;
+    line-height: 1.2;
+}
+
+.header-titles h3 {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
+    margin: 0;
 }
 
 .nav-buttons {
     display: flex;
-    gap: 10px;
-    margin-left: auto;
+    gap: 2rem;
+    align-items: center;
 }
 
 .nav-buttons a {
     color: #ffffff;
-    padding: 8px 15px;
     text-decoration: none;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ffffff;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
 }
 
 .nav-buttons a:hover {
-    background-color: #ffffff;
-    color: #00274d;
+    color: rgba(255, 255, 255, 0.8);
 }
 
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
 
+.menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+/* Responsividade */
 @media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
     .nav-buttons {
-        display: none; /* Oculta o menu por padrão */
-        flex-direction: column; /* Exibe os links um abaixo do outro */
-        background-color: #004c8c; /* Ajusta o fundo do dropdown */
-        padding: 10px 0; /* Espaço interno */
-        position: absolute; /* Para que o dropdown flutue */
-        top: 70px; /* Ajuste para que o dropdown apareça logo abaixo do cabeçalho */
-        right: 0;
+        position: absolute;
+        top: 70px;
+        left: 0;
         width: 100%;
-        z-index: 10; /* Garante que o menu fique sobre outros elementos */
-        margin-top: 15px;
-        box-sizing: border-box;
+        flex-direction: column;
+        background: rgba(0, 39, 77, 0.95);
+        padding: 1rem;
+        gap: 1rem;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
     }
 
     .nav-buttons.active {
-        display: flex;
-        /* background-color: #004c8c; Ajuste de cor se necessário */
-        /* padding: 10px 0; Para dar espaço interno */
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
     }
 
     .nav-buttons a {
-        width: calc(100% - 40px); /* Reduz a largura dos botões */
-        margin: 5px auto; /* Centraliza os botões e adiciona espaço entre eles */
-        display: block; /* Garante que os botões ocupem toda a largura */
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-titles h1 {
+        font-size: 1.1rem;
     }
 
-    .menu-toggle {
-        display: block;
-        color: #fff;
-        font-size: 24px;
-        cursor: pointer;
-        margin-left: auto;
+    .header-titles h3 {
+        font-size: 0.8rem;
     }
 }
 
@@ -118,6 +169,7 @@ header {
 .hero-section {
     position: relative;
     min-height: 70vh;
+    padding-top: 2rem; /* Adiciona um espaço extra no topo da primeira seção */
     background: linear-gradient(135deg, #3a3a3a, #1c1c1c);
     display: flex;
     align-items: center;
@@ -347,9 +399,14 @@ header {
         padding: 0.875rem 2rem;
         font-size: 1rem;
     }
-
+    
+    body {
+        padding-top: 70px; /* Mantém o mesmo padding em mobile */
+    }
+    
     .hero-section {
-        min-height: 50vh;
+        min-height: 60vh; /* Reduz um pouco a altura em telas menores */
+        padding-top: 1rem; /* Reduz o padding extra em mobile */
     }
 }
 
