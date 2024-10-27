@@ -1,11 +1,13 @@
-// Menu Toggle para Dispositivos Móveis
-const menuToggle = document.querySelector('.menu-toggle');
-const navButtons = document.querySelector('.nav-buttons');
+// Modificar o script de toggle do menu
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navButtons = document.querySelector('.nav-buttons');
 
-menuToggle.addEventListener('click', () => {
-    navButtons.classList.toggle('active');
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navButtons.classList.toggle('active');
+    });
 });
-
 // Script para navegação suave
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {

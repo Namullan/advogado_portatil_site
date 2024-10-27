@@ -104,26 +104,55 @@ html {
 
 .menu-toggle {
     display: none;
-    flex-direction: column;
-    gap: 4px;
     background: none;
     border: none;
     cursor: pointer;
     padding: 0.5rem;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    z-index: 1000;
 }
 
-.menu-toggle span {
+.hamburger-line {
     display: block;
     width: 24px;
     height: 2px;
     background-color: #ffffff;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    position: absolute;
+    left: 8px;
+}
+
+.hamburger-line:nth-child(1) {
+    top: 12px;
+}
+
+.hamburger-line:nth-child(2) {
+    top: 19px;
+}
+
+.hamburger-line:nth-child(3) {
+    top: 26px;
+}
+
+/* Animação para X quando menu está ativo */
+.menu-toggle.active .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
     .menu-toggle {
-        display: flex;
+        display: block;
     }
 
     .nav-buttons {
