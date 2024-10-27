@@ -101,25 +101,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Script do Pop-up de "Em breve"
 function createDownloadPopup() {
-    // Seleciona todos os botões de download
     const downloadButtons = document.querySelectorAll('.call-to-action .btn, .download-btn');
     
-    // Adiciona o event listener para cada botão
     downloadButtons.forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
             
-            // Remove qualquer popup existente
             const existingPopup = document.querySelector('.download-popup');
             if (existingPopup) {
                 existingPopup.remove();
             }
             
-            // Cria o elemento do popup
             const popup = document.createElement('div');
             popup.className = 'download-popup';
             popup.innerHTML = `
                 <div class="popup-content">
+                    <button class="close-popup" aria-label="Fechar">×</button>
                     <div class="popup-icon">
                         <svg viewBox="0 0 24 24" class="icon-app" width="32" height="32">
                             <path fill="currentColor" d="M21 2H3c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H3V4h18v16z"/>
@@ -150,10 +147,15 @@ function createDownloadPopup() {
                 </div>
             `;
             
-            // Adiciona o popup ao body
             document.body.appendChild(popup);
             
-            // Adiciona evento de clique para fechar o popup ao clicar fora dele
+            // Adiciona evento de clique no botão fechar
+            const closeBtn = popup.querySelector('.close-popup');
+            closeBtn.addEventListener('click', () => {
+                popup.classList.add('fade-out');
+                setTimeout(() => popup.remove(), 300);
+            });
+            
             popup.addEventListener('click', function(e) {
                 if (e.target === popup) {
                     popup.classList.add('fade-out');
@@ -161,7 +163,6 @@ function createDownloadPopup() {
                 }
             });
             
-            // Remove o popup após 4 segundos
             setTimeout(() => {
                 if (popup.parentNode) {
                     popup.classList.add('fade-out');
