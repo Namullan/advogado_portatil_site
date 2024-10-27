@@ -43,6 +43,62 @@ function toggleTitles() {
     }, 5000);
 }
 
+// Cards da srção Funcionalidades - Ativação automática em dispositivos móveis
+document.addEventListener('DOMContentLoaded', function() {
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile) {
+        const cards = document.querySelectorAll('.feature-card');
+        
+        // Adiciona classe inicial para animação
+        cards.forEach(card => {
+            card.classList.add('animate-in');
+        });
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // Pequeno delay para cada card
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('show-mobile');
+                    }, Array.from(cards).indexOf(entry.target) * 150); // 150ms de delay entre cada card
+                } else {
+                    // Suaviza a saída também
+                    entry.target.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                    entry.target.classList.remove('show-mobile');
+                }
+            });
+        }, {
+            threshold: 0.2, // Reduzido para começar a animação mais cedo
+            rootMargin: '-10% 0px'
+        });
+
+        cards.forEach(card => {
+            observer.observe(card);
+        });
+    } else {
+        // Mantém o comportamento desktop existente
+        const cards = document.querySelectorAll('.feature-card');
+        cards.forEach(card => {
+            card.addEventListener('click', function() {
+                const wasActive = this.classList.contains('show-mobile');
+                
+                // Adiciona transição suave para todos os cards
+                cards.forEach(c => {
+                    c.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                    c.classList.remove('show-mobile');
+                });
+                
+                if (!wasActive) {
+                    setTimeout(() => {
+                        this.classList.add('show-mobile');
+                    }, 50); // Pequeno delay para suavizar a transição
+                }
+            });
+        });
+    }
+});
+
 // Script do Pop-up de "Em breve"
 function createDownloadPopup() {
     // Seleciona todos os botões de download
