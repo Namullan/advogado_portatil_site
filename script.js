@@ -173,8 +173,53 @@ function createDownloadPopup() {
     });
 }
 
+// Função para criar o grid e animar células aleatórias
+function createTechGrid() {
+    const grid = document.querySelector('.tech-grid');
+    const rows = 20;
+    const cols = 20;
+    
+    // Criar células do grid
+    for (let i = 0; i < rows * cols; i++) {
+        const gridItem = document.createElement('div');
+        gridItem.className = 'grid-item';
+        grid.appendChild(gridItem);
+    }
+    
+    // Animar células aleatórias
+    setInterval(() => {
+        const items = document.querySelectorAll('.grid-item');
+        items.forEach(item => item.classList.remove('active'));
+        
+        const numActive = Math.floor(Math.random() * 10) + 5; // 5-15 células ativas
+        for (let i = 0; i < numActive; i++) {
+            const randomIndex = Math.floor(Math.random() * items.length);
+            items[randomIndex].classList.add('active');
+        }
+    }, 2000);
+}
+
+// Função para criar partículas flutuantes
+function createParticles() {
+    const container = document.querySelector('.floating-particles');
+    const numParticles = 20;
+    
+    for (let i = 0; i < numParticles; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        // Posição inicial aleatória
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.animationDelay = `${Math.random() * 8}s`;
+        
+        container.appendChild(particle);
+    }
+}
+
 // Inicializa todas as funcionalidades quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', function() {
     toggleTitles();
     createDownloadPopup();
+    createTechGrid();
+    createParticles();
 });
