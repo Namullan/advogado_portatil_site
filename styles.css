@@ -252,9 +252,11 @@ html {
 
 .hero-title-container {
     position: relative;
-    height: 4rem;
-    margin-bottom: 1.5rem;
-    overflow: hidden;
+    height: auto;
+    min-height: 4rem;
+    margin-bottom: 6rem;
+    overflow: visible;
+    padding: 0 1rem;
 }
 
 .hero-title {
@@ -270,6 +272,44 @@ html {
     opacity: 0;
     transform: translateY(20px);
     transition: all 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-title-container {
+        min-height: 3rem;
+        margin-bottom: 4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.2;
+        position: relative;
+    }
+    
+    .hero-title-container {
+        min-height: auto;
+        height: auto;
+        margin-bottom: 2rem;
+    }
+
+    .hero-content {
+        padding: 1rem;
+    }
+}
+
+/* Ajuste adicional para telas muito pequenas */
+@media (max-width: 320px) {
+    .hero-title {
+        font-size: 1.75rem;
+    }
 }
 
 #hero-title-1 {
@@ -290,6 +330,7 @@ html {
 .hero-description {
     font-size: 1.25rem;
     line-height: 1.6;
+    margin-top: 4rem;
     margin-bottom: 2.5rem;
     color: #e0e0e0;
 }
@@ -436,6 +477,13 @@ html {
     .hero-section {
         min-height: 60vh; /* Reduz um pouco a altura em telas menores */
         padding-top: 1rem; /* Reduz o padding extra em mobile */
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        padding: 0 0.5rem;
     }
 }
 
